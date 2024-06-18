@@ -1,6 +1,9 @@
 <template>
   <div class="op-agenda">
     <ul>
+      <li style="font-size: 30px">
+        En manque d'Opossum ?
+      </li>
       <li v-for="next in nextDates" :key="next.event">
         <p>du {{ next.from }} au {{ next.to }}</p>
         <a :href="next.link" target="_blank">{{next.event}}</a> à {{next.location}} {{next.country}}
@@ -33,7 +36,6 @@ const nextDates = NextDates.filter(date => {
 </script>
 <style scoped>
 .op-agenda {
-  padding: 20px 20px 20px 20px;
   z-index: 999999;
   position: relative;
   background-image: url('./../../assets/speech3.png');
@@ -50,8 +52,10 @@ const nextDates = NextDates.filter(date => {
   list-style-type: none;
   font-family: julien;
   color: black;
+  font-size: 23px;
 }
 .op-agenda li {
+  text-align: center;
   margin: 20px 0 20px 0;
 }
 </style>

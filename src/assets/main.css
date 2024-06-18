@@ -25,6 +25,13 @@ a,
   body {
     display: flex;
     place-items: center;
+    background-color: black;
+    /*
+    background-image: url('../assets/background/julien/bg1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-clip: content-box;
+    */
   }
 
   #app {

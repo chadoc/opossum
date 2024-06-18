@@ -13,7 +13,7 @@
         <source src="../../assets/spirit.mp3" type="audio/mpeg">
       </audio>
     </div>
-    <div ref="agenda" :style="{ width: agendaWidth, height: agendaHeight }">
+    <div ref="agenda" class="agenda-container" :style="{ width: agendaWidth, height: agendaHeight }">
       <Agenda v-if="gameEnded" />
     </div>
   </div>
@@ -50,7 +50,8 @@ const style = computed(() => {
 })
 
 function computeAgendaSize() {
-  const height = canvas1.value!.height - (canvas1.value!.height * 0.5)
+  const height = canvas1.value!.height - (canvas1.value!.height * 0.3)
+
   const width = height * (656/520)
   agendaWidth.value = `${width}px`
   agendaHeight.value = `${height}px`
@@ -126,5 +127,8 @@ function restart() {
   font-family: julien;
   font-size: 20px;
   padding: 10px;
+}
+.agenda-container {
+  margin-top: 60px;
 }
 </style>
