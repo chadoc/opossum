@@ -1,0 +1,80 @@
+<template>
+  <div>
+<!--    <img id="userImg" :src="userImg" />-->
+    <canvas id="collisionCanvas1" ref="collisionCanvas1"></canvas>
+    <canvas id="canvas1" ref="canvas1"></canvas>
+    <button id="fullScreenButton" style='font-family: julien; font-size:18px' ref="fullScreenButton" @click="toggleFullScreen">FullScreen</button>
+    <div class="hiddenAsset">
+      <img src="../../assets/SpriteCloud.png" />
+      <img src="../../assets/SpritePuppet.png" />
+<!--      <audio src="../../assets/liquid.wav" preload="auto" />-->
+      <audio v-if="Config.backgroundSound" autoplay>
+        <source src="../../assets/spirit.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+</template>
+<script setup lang="ts">
+import {onMounted, ref, unref} from 'vue'
+import {triggerGame} from '@/components/game/Game'
+import {Game} from '@/components/game/Game'
+import Config from '@/components/game/Config'
+
+const props = defineProps<{
+  userImg?: any | undefined
+}>()
+
+const canvas1 = ref<HTMLCanvasElement>()
+const collisionCanvas1 = ref<HTMLCanvasElement>()
+const fullScreenButton = ref<HTMLButtonElement>()
+const game = ref<Game>()
+// TODO preload img/wav
+
+onMounted(() =>  {
+  const canvas = unref(canvas1)!
+  const collisionCanvas = unref(collisionCanvas1)!
+
+  const { innerWidth, innerHeight } = window
+  canvas.width = innerWidth
+  canvas.height = innerHeight
+  collisionCanvas.width = innerWidth
+  collisionCanvas.height = innerHeight
+
+  window.addEventListener('load', function() {
+    game.value = triggerGame(canvas, collisionCanvas)
+    //game.value?.toggleFullScreen()
+  })
+
+})
+
+function toggleFullScreen() {
+  game.value?.toggleFullScreen()
+}
+
+</script>
+<style scoped>
+#canvas1, #collisionCanvas1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid white;
+  max-width: 100%;
+  max-height: 100%;
+}
+#collisionCanvas1 {
+  //background: red;
+  opacity: 0;
+}
+.hiddenAsset {
+  display: none;
+}
+#fullScreenButton {
+  position: absolute;
+  font-size: 20px;
+  padding: 10px;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>
