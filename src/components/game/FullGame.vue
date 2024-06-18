@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="container">
 <!--    <img id="userImg" :src="userImg" />-->
     <canvas id="collisionCanvas1" ref="collisionCanvas1"></canvas>
     <canvas id="canvas1" ref="canvas1"></canvas>
@@ -10,11 +10,13 @@
         <source src="../../assets/spirit.mp3" type="audio/mpeg">
       </audio>
     </div>
-    <Agenda v-if="gameEnded" />
+    <div ref="agenda" :style="{ width: agendaWidth, height: agendaHeight }">
+      <Agenda v-if="gameEnded" />
+    </div>
   </div>
 </template>
 <script setup lang="ts">
-import {onMounted, ref, unref} from 'vue'
+import {computed, onMounted, ref, unref} from 'vue'
 import {triggerGame} from '@/components/game/Game'
 import {Game} from '@/components/game/Game'
 import Config from '@/components/game/Config'
@@ -27,10 +29,29 @@ const props = defineProps<{
 const canvas1 = ref<HTMLCanvasElement>()
 const collisionCanvas1 = ref<HTMLCanvasElement>()
 const fullScreenButton = ref<HTMLButtonElement>()
+const agendaWidth = ref('100%')
+const agendaHeight = ref('100%')
+
 const game = ref<Game>()
 // TODO preload img/wav
 
 const gameEnded = ref(false)
+
+const style = computed(() => {
+  const width = canvas1.value?.width
+  const height = width * ( 9/16)
+  return {
+    width,
+    height
+  }
+})
+
+function computeAgendaSize() {
+  const height = canvas1.value!.height - (canvas1.value!.height * 0.5)
+  const width = height * (656/520)
+  agendaWidth.value = `${width}px`
+  agendaHeight.value = `${height}px`
+}
 
 onMounted(() =>  {
   const canvas = unref(canvas1)!
@@ -47,6 +68,10 @@ onMounted(() =>  {
     //game.value?.toggleFullScreen()
   })
 
+  window.addEventListener('game-resized', function() {
+    computeAgendaSize()
+  })
+
   window.addEventListener('game-ended', function() {
     gameEnded.value = true
   })
@@ -59,6 +84,11 @@ function toggleFullScreen() {
 
 </script>
 <style scoped>
+#container {
+  display: flex;
+  justify-content: center;
+}
+
 #canvas1, #collisionCanvas1 {
   position: absolute;
   top: 50%;

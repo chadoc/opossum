@@ -308,7 +308,7 @@ export class Game implements GameContext {
   async toggleFullScreen() {
     if (!document.fullscreenElement) {
       try {
-        await this.ctx.canvas.requestFullscreen()
+        await this.ctx.canvas.parentElement.requestFullscreen()
       } catch (error) {
         console.error('Not able to enable full screen', error)
       }

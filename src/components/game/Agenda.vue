@@ -22,10 +22,14 @@ const nextDates = NextDates.filter(date => {
 .op-agenda {
   padding: 20px 20px 20px 20px;
   z-index: 999999;
-  position: absolute;
+  position: relative;
   background-image: url('./../../assets/speech3.png');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
