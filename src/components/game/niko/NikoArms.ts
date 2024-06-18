@@ -19,7 +19,7 @@ export class NikoArms implements DisplayedObject {
     private frameRate: FrameRate
     private animation: ObjectAnimation
 
-    mustDelete: boolean;
+    mustDelete = false;
     source: any;
 
     constructor(game: GameContext, parent: MovingElement) {

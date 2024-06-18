@@ -1,11 +1,11 @@
 import type {GameContext} from "@/components/game/common/Draw";
 import {Position} from "@/components/game/common/Draw";
 
-export function randomIntFromInterval(min, max) { // min and max included
+export function randomIntFromInterval(min: number, max: number) { // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-export function randomScale(min, max) {
+export function randomScale(min: number, max: number) {
   return randomIntFromInterval(min * 101, max * 101) / 101
 }
 

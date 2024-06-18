@@ -39,7 +39,7 @@ export class Fumigene implements DisplayedObject {
     private scaleRate: FrameRate
     private layerSpeed: number
     private speed: number
-    private mustDelete = false
+    mustDelete = false
     private scaleIncrement: number = 0.02
     private readonly bubbleText: FixedBubbleText
 

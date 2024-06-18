@@ -20,7 +20,7 @@ export class NikoPlayer implements DisplayedObject, MovingElement {
   private readonly game: GameContext
   private position: Position
   private body: AnimatedSprite
-  protected movement: Movement
+  movement: Movement
   private frameRate: FrameRate
   private arms: NikoArms
   private legs: NikoLegs

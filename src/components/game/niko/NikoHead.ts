@@ -21,7 +21,7 @@ export class NikoHead implements DisplayedObject {
     private frameRate: FrameRate
     private animation: ObjectAnimation
 
-    mustDelete: boolean;
+    mustDelete = false;
 
     constructor(game: GameContext, parent: PositionedElement) {
         this.game = game;

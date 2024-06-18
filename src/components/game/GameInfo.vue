@@ -20,7 +20,7 @@
 import InfoBulle from "@/components/game/InfoBulle.vue";
 
 const emit = defineEmits<{
-  (event: 'start')
+  (event: 'start'): void
 }>()
 
 function start() {

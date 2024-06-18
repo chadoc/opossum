@@ -22,14 +22,14 @@ import {NextDates} from "@/components/game/NextDates";
 import InfoBulle from "@/components/game/InfoBulle.vue";
 
 const emit = defineEmits<{
-  (event: 'restart')
+  (event: 'restart'): void
 }>()
 
 function restart() {
   emit('restart')
 }
 
-const dateOptions = {
+const dateOptions: Record<string, string> = {
   // weekday: 'none',
   year: 'numeric',
   month: 'long',

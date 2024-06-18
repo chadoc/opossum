@@ -42,7 +42,7 @@ const showGameInfo = ref(false)
 const gameEnded = ref(false)
 
 const style = computed(() => {
-  const width = canvas1.value?.width
+  const width = canvas1.value!.width
   const height = width * ( 9/16)
   return {
     width,
@@ -116,7 +116,7 @@ function restart() {
   max-height: 100%;
 }
 #collisionCanvas1 {
-  //background: red;
+  /* background: red; */
   opacity: 0;
 }
 .hiddenAsset {

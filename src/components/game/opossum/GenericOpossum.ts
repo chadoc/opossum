@@ -19,7 +19,7 @@ export abstract class GenericOpossum implements DisplayedObject, DisplayedText {
     private movementRate: FrameRate
     private frameRate: FrameRate
     private collisionDetection: CollisionDetection
-    private lines: string[]
+    lines: string[]
     private readonly initialXShift: number
     private readonly initialYShift: number
 

@@ -32,7 +32,7 @@ export class NikoLegs implements DisplayedObject {
     private frameRate: FrameRate
     private animation: ObjectAnimation
 
-    mustDelete: boolean;
+    mustDelete = false;
     source: any;
 
     constructor(game: GameContext, parent: MovingElement) {

@@ -26,7 +26,7 @@ export class FixedBubbleText implements DisplayedObject{
     private readonly height: number
     private readonly position: Position
     private frame: number = 0
-    private readonly mustDelete = false
+    readonly mustDelete = false
 
     constructor(game: GameContext, textLines: string[]) {
         this.game = game
