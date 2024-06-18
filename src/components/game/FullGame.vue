@@ -3,7 +3,10 @@
 <!--    <img id="userImg" :src="userImg" />-->
     <canvas id="collisionCanvas1" ref="collisionCanvas1"></canvas>
     <canvas id="canvas1" ref="canvas1"></canvas>
-    <button id="fullScreenButton" style='font-family: julien; font-size:18px' ref="fullScreenButton" @click="toggleFullScreen">FullScreen</button>
+    <div id="toolbar">
+      <button @click="toggleFullScreen">FullScreen</button>
+      <button @click="restart">Restart</button>
+    </div>
     <div class="hiddenAsset">
 <!--      <audio src="../../assets/liquid.wav" preload="auto" />-->
       <audio v-if="Config.backgroundSound" autoplay>
@@ -82,6 +85,10 @@ function toggleFullScreen() {
   game.value?.toggleFullScreen()
 }
 
+function restart() {
+  window.location.reload()
+}
+
 </script>
 <style scoped>
 #container {
@@ -105,12 +112,19 @@ function toggleFullScreen() {
 .hiddenAsset {
   display: none;
 }
-#fullScreenButton {
+#toolbar {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
   position: absolute;
-  font-size: 20px;
-  padding: 10px;
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
+  max-height: 40px;
+}
+#toolbar button {
+  font-family: julien;
+  font-size: 20px;
+  padding: 10px;
 }
 </style>

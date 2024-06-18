@@ -2,7 +2,7 @@
   <div class="op-agenda">
     <ul>
       <li v-for="next in nextDates" :key="next.event">
-        <p>{{ next.from }} - {{ next.to }}</p>
+        <p>du {{ next.from }} au {{ next.to }}</p>
         <a :href="next.link" target="_blank">{{next.event}}</a> à {{next.location}} {{next.country}}
       </li>
     </ul>
@@ -11,10 +11,23 @@
 <script setup lang="ts">
 import {NextDates} from "@/components/game/NextDates";
 
+const dateOptions = {
+  // weekday: 'none',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}
+
 const nextDates = NextDates.filter(date => {
   const to = new Date(date.to)
   const now = new Date()
   return now.getTime() < to.getTime()
+}).map(date => {
+  return {
+    ...date,
+    from: new Date(date.from).toLocaleDateString(undefined, dateOptions),
+    to: new Date(date.to).toLocaleDateString(undefined, dateOptions)
+  }
 })
 
 </script>
@@ -31,5 +44,14 @@ const nextDates = NextDates.filter(date => {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.op-agenda ul {
+  list-style-type: none;
+  font-family: julien;
+  color: black;
+}
+.op-agenda li {
+  margin: 20px 0 20px 0;
 }
 </style>
