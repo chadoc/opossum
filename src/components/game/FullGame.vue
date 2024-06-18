@@ -5,13 +5,12 @@
     <canvas id="canvas1" ref="canvas1"></canvas>
     <button id="fullScreenButton" style='font-family: julien; font-size:18px' ref="fullScreenButton" @click="toggleFullScreen">FullScreen</button>
     <div class="hiddenAsset">
-      <img src="../../assets/SpriteCloud.png" />
-      <img src="../../assets/SpritePuppet.png" />
 <!--      <audio src="../../assets/liquid.wav" preload="auto" />-->
       <audio v-if="Config.backgroundSound" autoplay>
         <source src="../../assets/spirit.mp3" type="audio/mpeg">
       </audio>
     </div>
+    <Agenda v-if="gameEnded" />
   </div>
 </template>
 <script setup lang="ts">
@@ -19,6 +18,7 @@ import {onMounted, ref, unref} from 'vue'
 import {triggerGame} from '@/components/game/Game'
 import {Game} from '@/components/game/Game'
 import Config from '@/components/game/Config'
+import Agenda from "@/components/game/Agenda.vue";
 
 const props = defineProps<{
   userImg?: any | undefined
@@ -29,6 +29,8 @@ const collisionCanvas1 = ref<HTMLCanvasElement>()
 const fullScreenButton = ref<HTMLButtonElement>()
 const game = ref<Game>()
 // TODO preload img/wav
+
+const gameEnded = ref(false)
 
 onMounted(() =>  {
   const canvas = unref(canvas1)!
@@ -43,6 +45,10 @@ onMounted(() =>  {
   window.addEventListener('load', function() {
     game.value = triggerGame(canvas, collisionCanvas)
     //game.value?.toggleFullScreen()
+  })
+
+  window.addEventListener('game-ended', function() {
+    gameEnded.value = true
   })
 
 })

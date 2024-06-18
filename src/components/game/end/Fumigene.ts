@@ -131,7 +131,7 @@ export class Fumigene implements DisplayedObject {
 
     draw() {
         if (this.mustDelete) {
-            this.bubbleText.draw()
+            //this.bubbleText.draw()
         } else {
             this.game.drawer.drawSprite(this.sprite.toDrawRef(this.coordinate))
         }

@@ -1,4 +1,12 @@
-const NextDates = [
+export const NextDates = [
+    {
+        from: '2023-07-21',
+        to: '2023-08-06',
+        event: 'Test',
+        location: 'Vuadens',
+        country: 'CH',
+        link: 'https://cchar.ch/'
+    },
     {
         from: '2024-07-21',
         to: '2024-08-06',

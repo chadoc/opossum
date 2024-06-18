@@ -268,7 +268,7 @@ export class Game implements GameContext {
   }
 
   get isGameOver() {
-    return this.level.isGameOver
+    return this.level.isGameOver || this.isGameDone
   }
 
   get ctx() {
@@ -335,6 +335,8 @@ export function triggerGame(canvas: HTMLCanvasElement, collisionCanvas: HTMLCanv
 
     if (!game.isGameOver) {
       requestAnimationFrame(animate)
+    } else {
+      window.dispatchEvent(new CustomEvent('game-ended', {}))
     }
   }
 
