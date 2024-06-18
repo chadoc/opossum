@@ -2,5 +2,5 @@
 
 Scan QR
 
-![Niko](./doc/QRNiko.png)
+![Niko](./doc/qr-opossum.png)
 
