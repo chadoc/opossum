@@ -11,7 +11,7 @@ type DisplayedRow = {
     height: number
 }
 
-const font = '3.2vh julien'
+const font = '3.4vh julien'
 const color = 'black'
 
 export class BubbleText {

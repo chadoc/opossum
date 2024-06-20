@@ -5,6 +5,9 @@
         Vient à notre rencontre !
       </li>
       <li>
+        Oriente ton téléphone en mode paysage.
+      </li>
+      <li>
         Chatouille Niko avec ton pouce.
       </li>
       <li>

@@ -15,7 +15,7 @@ function nextGimmick() {
     return currentGimmick
 }
 
-function splitInLines(sentence: string, maxLine = 2): string[] {
+function splitInLines(sentence: string, maxLine = 1): string[] {
     const rowLimit = Math.round(sentence.length / maxLine)
     const lines: string[] = []
     let currentLine = 0

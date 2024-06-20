@@ -42,7 +42,8 @@ a,
 
   button {
     font-family: julien;
-    font-size: 20px;
+    /* font-size: 20px; */
+    font-size: 3.2vh;
     padding: 10px;
   }
 
@@ -50,7 +51,8 @@ a,
     list-style-type: none;
     font-family: julien;
     color: black;
-    font-size: 23px;
+    /*font-size: 23px;*/
+    font-size: 3.2vh;
   }
 
   li {
@@ -59,6 +61,7 @@ a,
   }
 
   li.title {
-    font-size: 30px;
+    /* font-size: 30px; */
+    font-size: 4.7vh;
   }
 }
