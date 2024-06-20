@@ -11,7 +11,6 @@ type DisplayedRow = {
     height: number
 }
 
-const font = '3.4vh julien'
 const color = 'black'
 
 export class BubbleText {
@@ -30,13 +29,23 @@ export class BubbleText {
     }
 
     private get maxTextWidth(): number {
-        this.game.ctx.font = font
+        this.game.ctx.font = this.font
         this.game.ctx.fillStyle = color
         let width = 0
         for (const line of this.textLines) {
             width = Math.max(width, this.game.ctx.measureText(line).width)
         }
         return width
+    }
+
+    get font(): string {
+        const landScape = screen.orientation.type.indexOf('landscape') > -1
+        const rule = landScape ? "(max-height: 768px)" : "(max-width: 768px)"
+        if (window.matchMedia(rule).matches) {
+            return '5vh julien'
+        } else {
+            return '3.4vh julien'
+        }
     }
 
     get position(): Position {
@@ -49,7 +58,7 @@ export class BubbleText {
     }
 
     draw(): void {
-        this.game.ctx.font = font
+        this.game.ctx.font = this.font
         this.game.ctx.fillStyle = color
 
         const lineCount = this.textLines.length
@@ -63,7 +72,7 @@ export class BubbleText {
             const textWidth = this.game.ctx.measureText(g).width
             const textX = this.position.x + ((bubbleWidth - textWidth) / 2)
             const textY = this.position.y + this.lineHeight * this.textLines.indexOf(g) + this.lineHeight + 5
-            this.game.ctx.fillText(g, textX, textY)
+            this.game.ctx.fillText(g + this.font, textX, textY)
         })
     }
 
