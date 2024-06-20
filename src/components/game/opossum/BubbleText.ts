@@ -72,7 +72,7 @@ export class BubbleText {
             const textWidth = this.game.ctx.measureText(g).width
             const textX = this.position.x + ((bubbleWidth - textWidth) / 2)
             const textY = this.position.y + this.lineHeight * this.textLines.indexOf(g) + this.lineHeight + 5
-            this.game.ctx.fillText(g + this.font, textX, textY)
+            this.game.ctx.fillText(g, textX, textY)
         })
     }
 

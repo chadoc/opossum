@@ -111,7 +111,7 @@ function restart() {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 5px solid white;
+  /* border: 5px solid white; */
   max-width: 100%;
   max-height: 100%;
 }
