@@ -5,7 +5,6 @@ import {Position} from "@/components/game/common/Draw";
 import {FrameRate} from '@/components/game/common/FrameRate'
 import Config from "@/components/game/Config";
 import {AnimatedSprite, type AnimationSprite} from "@/components/game/common/AnimatedSprite";
-import {getNextDates} from "@/components/game/end/NextDates";
 import {FixedBubbleText} from "@/components/game/end/FixedBubbleText";
 
 
@@ -56,7 +55,7 @@ export class Fumigene implements DisplayedObject {
         this.frameRate = new FrameRate(Config.frameRate * 1.1)
         this.scaleRate = new FrameRate(30)
 
-        this.bubbleText = new FixedBubbleText(this.game, getNextDates())
+        this.bubbleText = new FixedBubbleText(this.game)
     }
 
     get width(): number {

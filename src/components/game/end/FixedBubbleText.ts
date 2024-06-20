@@ -28,10 +28,10 @@ export class FixedBubbleText implements DisplayedObject{
     private frame: number = 0
     readonly mustDelete = false
 
-    constructor(game: GameContext, textLines: string[]) {
+    constructor(game: GameContext) {
         this.game = game
         this.sprite = new AnimatedSprite(CloudSprite, { row: 0, frame: 0 })
-        this.textLines = textLines
+        this.textLines = []
         this.frameRate = new FrameRate(Config.frameRate)
 
         this.width = this.bubbleWidth

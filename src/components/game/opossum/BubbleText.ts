@@ -1,5 +1,5 @@
 import Bubble from "@/assets/speech3.png";
-import type {DisplayedObject, GameContext, InputController, PositionedElement} from "@/components/game/common/Draw";
+import type {GameContext, PositionedElement} from "@/components/game/common/Draw";
 import {Position} from "@/components/game/common/Draw";
 
 const bubble = new Image()

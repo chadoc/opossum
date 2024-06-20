@@ -20,7 +20,7 @@ function splitInLines(sentence: string, maxLine = 1): string[] {
     const lines: string[] = []
     let currentLine = 0
 
-    for (const word of sentence.split(' ')) {
+    for (const word of sentence.split(' ').filter(w => w.length > 0)) {
         lines[currentLine] = (lines[currentLine] || '') + word + ' '
         if (lines[currentLine].length >= rowLimit && currentLine < maxLine) {
             currentLine++
