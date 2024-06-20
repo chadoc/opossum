@@ -1,6 +1,6 @@
 <template>
   <div id="welcome">
-    <p v-if="Config.requireLandscapeMode && !landscapeMode" style="text-align: justify">
+    <p v-if="Config.requireLandscapeMode && !landscapeMode" style="text-align: center">
       Veuillez tourner votre telephone en mode paysage
     </p>
     <div v-else>
@@ -16,7 +16,7 @@
 
 import CameraAccess from '@/components/CameraAccess.vue'
 import FullGame from '@/components/game/FullGame.vue'
-import {onMounted, ref} from 'vue'
+import {nextTick, onMounted, ref, watch} from 'vue'
 import Config from '@/components/game/Config'
 /*
 import { defineAsyncComponent } from 'vue'
@@ -29,12 +29,21 @@ const loading = ref(true)
 const play = ref(false)
 const userImg = ref<any>()
 const landscapeMode = ref(false)
+const mounted = ref(false)
 
-onMounted(() => {
+watch(landscapeMode, (val, old) => {
+  if (!old && val && mounted.value) {
+    window.location.reload()
+  }
+})
+
+onMounted(async () => {
   window.addEventListener('game-loaded', () => {
     loading.value = false
   })
   landscapeMode.value = screen.orientation.type.indexOf('landscape') > -1
+
+  await nextTick()
 
   if (Config.requireLandscapeMode) {
     window.addEventListener('orientationchange', (event) => {
@@ -44,6 +53,8 @@ onMounted(() => {
   if (!Config.requestUserPicture) {
     play.value = true
   }
+
+  mounted.value = true
   // loading.value = false
 })
 
@@ -60,7 +71,8 @@ function pictureTaken({ img }: { img: any }) {
   display: flex;
   justify-content: center;
   font-family: julien;
-  font-size: 7vh;
+  text-align: center;
+  font-size: 6vh;
   color: white;
 }
 .loader {
