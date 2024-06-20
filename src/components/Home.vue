@@ -7,7 +7,7 @@
       <div v-if="loading" class="loader">
         <img src="../assets/loading.webp">
       </div>
-      <FullGame v-if="play && landscapeMode" :user-img="userImg" />
+      <FullGame v-show="play && landscapeMode" :user-img="userImg" />
       <CameraAccess v-if="!play" @pictureTaken="pictureTaken"  />
     </div>
   </div>
