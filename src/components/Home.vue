@@ -1,13 +1,15 @@
 <template>
   <div id="welcome">
-    <p v-if="Config.requireLandscapeMode && !landscapeMode">Veuillez tourner votre telephone en mode paysage</p>
+    <p v-if="Config.requireLandscapeMode && !landscapeMode">
+      Veuillez tourner votre telephone en mode paysage
+    </p>
     <div v-else>
       <div v-if="loading">
         Loading
       </div>
       <div v-else>
         <CameraAccess v-if="!play" @pictureTaken="pictureTaken"  />
-        <FullGame v-if="play" :user-img="userImg" />
+        <FullGame v-if="play && landscapeMode" :user-img="userImg" />
       </div>
     </div>
   </div>
@@ -49,5 +51,8 @@ function pictureTaken({ img }: { img: any }) {
 #welcome {
   display: flex;
   justify-content: center;
+  font-family: julien;
+  font-size: 7vh;
+  color: white;
 }
 </style>
