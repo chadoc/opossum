@@ -2,7 +2,7 @@
   <InfoBulle>
     <ul>
       <li class="title">
-        Vient à notre rencontre !
+        Viens à notre rencontre !
       </li>
       <li>
         Oriente ton téléphone en mode paysage.
