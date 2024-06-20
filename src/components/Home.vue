@@ -15,14 +15,16 @@
 <script setup lang="ts">
 
 import CameraAccess from '@/components/CameraAccess.vue'
+import FullGame from '@/components/game/FullGame.vue'
 import {onMounted, ref} from 'vue'
 import Config from '@/components/game/Config'
+/*
 import { defineAsyncComponent } from 'vue'
 
 const FullGame = defineAsyncComponent({
   loader: () => import('@/components/game/FullGame.vue')
 })
-
+*/
 const loading = ref(true)
 const play = ref(false)
 const userImg = ref<any>()

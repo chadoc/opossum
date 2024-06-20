@@ -23,8 +23,8 @@ image.src = Sprite
 export const NikoSprite: AnimationSprite = {
     img: Sprite,
     image,
-    colWidth: 900,
-    rowHeight: 900,
+    colWidth: 300,
+    rowHeight: 300,
     states: [
         {
             name: 'mouth',

@@ -7,8 +7,8 @@ image.src = Sprite
 export const OpossumSprite2: AnimationSprite = {
     img: Sprite,
     image,
-    colWidth: 1500,
-    rowHeight: 1500,
+    colWidth: 150,
+    rowHeight: 150,
     states: [
         {
             name: 'balance',
