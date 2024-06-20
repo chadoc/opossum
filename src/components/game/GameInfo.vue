@@ -14,9 +14,6 @@
         Rends visite aux Opossums.
       </li>
       <li>
-        MatchMedia: {{ matchMedia }}
-      </li>
-      <li>
         <button @click="start">Commence !</button>
       </li>
     </ul>
@@ -24,7 +21,6 @@
 </template>
 <script setup lang="ts">
 import InfoBulle from "@/components/game/InfoBulle.vue";
-import {computed, onMounted} from "vue";
 
 const emit = defineEmits<{
   (event: 'start'): void
@@ -34,12 +30,5 @@ function start() {
   emit('start')
 }
 
-const matchMedia = computed(() => {
-  return window.matchMedia("(max-width: 768px)").matches
-})
-
-onMounted(() => {
-  window.matchMedia("(max-width: 768px)").matches
-})
 
 </script>

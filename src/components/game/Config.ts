@@ -1,7 +1,7 @@
 export default {
   backgroundSound: false,
   requestUserPicture: false,
-  requireLandscapeMode: false,
+  requireLandscapeMode: true,
   frameRate: 50,
   gravity: 10,
   gravityScale: 0.009,
@@ -14,7 +14,7 @@ export default {
   opossumScale: 0.25,
   bubbleSpeedScale: 0.0002,
   fumigeneSpeedModifier: 0.9,
-  gameDuration: 3,
+  gameDuration: 30,
   leftKeys: ['ArrowLeft', 'SwipeLeft'],
   upKeys: ['ArrowUp', 'SwipeUp'],
   downKeys: ['ArrowDown', 'SwipeDown'],
