@@ -1,6 +1,6 @@
 <template>
   <div id="welcome">
-    <p v-if="Config.requireLandscapeMode && !landscapeMode">
+    <p v-if="Config.requireLandscapeMode && !landscapeMode" style="text-align: justify">
       Veuillez tourner votre telephone en mode paysage
     </p>
     <div v-else>
