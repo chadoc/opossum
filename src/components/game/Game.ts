@@ -266,7 +266,7 @@ export class Game implements GameContext {
         // no collision
       } else {
         if (!this.animations.some(a => a.source === opossum)) {
-          this.addAnimation(new SpeechBubble(this, opossum, 300, true))
+          this.addAnimation(new SpeechBubble(this, opossum, 300, false))
         }
       }
     })
