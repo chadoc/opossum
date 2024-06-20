@@ -156,6 +156,31 @@ export class Game implements GameContext {
     window.dispatchEvent(new CustomEvent('game-resized', {}))
   }
 
+  async start() {
+    await this.toggleFullScreen()
+    let lastTime = 1
+
+    const game = this
+    function animate(timestamp: number) {
+      game.ctx.clearRect(0, 0, game.ctx.canvas.width, game.ctx.canvas.height)
+      game.collisionCtx.clearRect(0, 0, game.ctx.canvas.width, game.ctx.canvas.height)
+
+      const deltaTime = timestamp - lastTime
+      lastTime = timestamp
+
+      game.update(deltaTime)
+      game.draw()
+
+      if (!game.isGameOver) {
+        requestAnimationFrame(animate)
+      } else {
+        window.dispatchEvent(new CustomEvent('game-ended', {}))
+      }
+    }
+
+    animate(0)
+  }
+
   miss() {
     this.level.miss()
   }

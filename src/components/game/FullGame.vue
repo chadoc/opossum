@@ -14,7 +14,7 @@
     </div>
     <div ref="agenda" class="agenda-container" :style="{ width: agendaWidth, height: agendaHeight }">
       <GameInfo v-if="showGameInfo" @start="start" />
-      <Agenda v-if="gameEnded" @restart="start" />
+      <Agenda v-if="gameEnded" @restart="restart" />
     </div>
   </div>
 </template>
@@ -59,10 +59,18 @@ function computeInfoBulleSize() {
 }
 
 async function start() {
+  await game.value!.start()
+  showGameInfo.value = false
+  gameEnded.value = false
+}
+
+async function restart() {
   const canvas = unref(canvas1)!
   const collisionCanvas = unref(collisionCanvas1)!
-  game.value = triggerGame(canvas, collisionCanvas)
-  await toggleFullScreen()
+  const ctx = canvas.getContext('2d')!
+  const collisionCtx = collisionCanvas.getContext('2d')!
+  game.value = new Game(ctx, collisionCtx)
+  await game.value.start()
   showGameInfo.value = false
   gameEnded.value = false
 }
@@ -81,6 +89,7 @@ onMounted(() =>  {
 
   window.addEventListener('load', function() {
     showGameInfo.value = true
+    window.dispatchEvent(new CustomEvent('game-loaded'))
   })
 
   window.addEventListener('game-resized', function() {
@@ -89,15 +98,11 @@ onMounted(() =>  {
   window.addEventListener('game-ended', function() {
     gameEnded.value = true
   })
+  const ctx = canvas.getContext('2d')!
+  const collisionCtx = collisionCanvas.getContext('2d')!
+
+  game.value = new Game(ctx, collisionCtx)
 })
-
-async function toggleFullScreen() {
-  return game.value?.toggleFullScreen()
-}
-
-function restart() {
-  window.location.reload()
-}
 
 </script>
 <style scoped>
