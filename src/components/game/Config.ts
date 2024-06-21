@@ -1,5 +1,5 @@
 export default {
-  backgroundSound: false,
+  backgroundSound: true,
   requestUserPicture: false,
   requireLandscapeMode: true,
   frameRate: 50,

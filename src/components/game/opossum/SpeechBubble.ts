@@ -76,7 +76,7 @@ export class SpeechBubble implements DisplayedObject {
 
   update(deltaTime: number) {
     if (this.frame === 0) {
-      // sound.play()
+      sound.play()
     }
 
     this.frameRate.onUpdate(deltaTime, () => {

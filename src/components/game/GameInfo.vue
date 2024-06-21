@@ -8,7 +8,7 @@
         Oriente ton téléphone en mode paysage.
       </li>
       <li>
-        Chatouille Niko avec ton pouce.
+        Chatouille Monsieur G avec ton pouce.
       </li>
       <li>
         Rends visite aux Opossums.

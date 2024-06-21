@@ -8,8 +8,8 @@
     </div>
     <div class="hiddenAsset">
 <!--      <audio src="../../assets/liquid.wav" preload="auto" />-->
-      <audio v-if="Config.backgroundSound" autoplay>
-        <source src="../../assets/spirit.mp3" type="audio/mpeg">
+      <audio ref="audioBg" v-if="Config.backgroundSound" autoplay loop>
+        <source src="./../../assets/spirit.mp3" type="audio/mpeg">
       </audio>
     </div>
     <div ref="agenda" class="agenda-container" :style="{ width: agendaWidth, height: agendaHeight }">
@@ -34,6 +34,7 @@ const canvas1 = ref<HTMLCanvasElement>()
 const collisionCanvas1 = ref<HTMLCanvasElement>()
 const agendaWidth = ref('100%')
 const agendaHeight = ref('100%')
+const audioBg = ref<HTMLAudioElement>()
 
 const game = ref<Game>()
 // TODO preload img/wav
@@ -62,6 +63,7 @@ async function start() {
   await game.value!.start()
   showGameInfo.value = false
   gameEnded.value = false
+  audioBg.value!.play()
 }
 
 async function restart() {
