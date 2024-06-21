@@ -1,5 +1,5 @@
 import Img from '../../../assets/fumigene.png'
-import CloudSound from '../../../assets/liquid.wav'
+import CloudSound from '../../../assets/sound/liquid.wav'
 import type {DisplayCoordinate, DisplayedObject, GameContext, InputController} from '@/components/game/common/Draw'
 import {Position} from "@/components/game/common/Draw";
 import {FrameRate} from '@/components/game/common/FrameRate'

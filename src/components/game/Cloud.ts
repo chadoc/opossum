@@ -1,5 +1,5 @@
 import CloudImg from '../../assets/SpriteCloud.png'
-import CloudSound from '../../assets/liquid.wav'
+import CloudSound from '../../assets/sound/liquid.wav'
 import type {DisplayedObject, GameContext} from '@/components/game/common/Draw'
 import {FrameRate} from '@/components/game/common/FrameRate'
 

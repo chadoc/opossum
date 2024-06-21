@@ -7,9 +7,9 @@
       <!--<button @click="toggleFullScreen">FullScreen</button>-->
     </div>
     <div class="hiddenAsset">
-<!--      <audio src="../../assets/liquid.wav" preload="auto" />-->
+<!--      <audio src="../../assets/sound/liquid.wav" preload="auto" />-->
       <audio ref="audioBg" v-if="Config.backgroundSound" autoplay loop>
-        <source src="./../../assets/spirit.mp3" type="audio/mpeg">
+        <source src="./../../assets/sound/fantasy-strange.mp3" type="audio/mpeg">
       </audio>
     </div>
     <div ref="agenda" class="agenda-container" :style="{ width: agendaWidth, height: agendaHeight }">

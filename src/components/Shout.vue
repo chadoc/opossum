@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import {onMounted, ref, unref} from 'vue'
 import CloudImg from '../assets/SpriteCloud.png'
-import CloudSound from '../assets/liquid.wav'
+import CloudSound from '../assets/sound/liquid.wav'
 import SpritePuppet from '../assets/SpritePuppet.png'
 
 const CANVAS_WIDTH = window.innerWidth;

@@ -1,5 +1,5 @@
 import Bubble from '../../../assets/speech3.png'
-import CloudSound from '../../../assets/liquid.wav'
+import CloudSound from '../../../assets/sound/wouah.mp3'
 import type {DisplayCoordinate, DisplayedObject, GameContext, PositionedElement} from '@/components/game/common/Draw'
 import {FrameRate} from '@/components/game/common/FrameRate'
 import Config from "@/components/game/Config";
