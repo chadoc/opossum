@@ -1,6 +1,11 @@
 <template>
   <InfoBulle>
     <ul>
+      <li>
+        <a href="https://ciequibascule.ch" class="logo-link" target="_blank">
+          <img style="max-height: 12vh" src="../..//assets/bascule.webp" alt="Cie qui bascule">
+        </a>
+      </li>
       <li class="title">
         En manque d'Opossum ?
       </li>
@@ -49,3 +54,8 @@ const nextDates = NextDates.filter(date => {
 })
 
 </script>
+<style scoped>
+.logo-link:hover {
+  display: inline-flex;
+}
+</style>

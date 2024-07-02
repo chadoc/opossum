@@ -52,7 +52,7 @@ const style = computed(() => {
 })
 
 function computeInfoBulleSize() {
-  const height = canvas1.value!.height - (canvas1.value!.height * 0.15)
+  const height = canvas1.value!.height - (canvas1.value!.height * 0.08)
 
   const width = height * (656/520)
   agendaWidth.value = `${width}px`
